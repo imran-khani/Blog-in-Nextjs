@@ -24,7 +24,7 @@ const Home = async () => {
         <div className="flex flex-wrap -m-4">
           {data?.map((post) => (
             <MotionDiv
-            key={post.slug}
+              key={post.slug}
               animation={{
                 initial: { opacity: 0, scale: 0.1, x: 0 },
                 animate: {
