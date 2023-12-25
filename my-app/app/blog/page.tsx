@@ -22,9 +22,8 @@ const Home = async () => {
     <section className="text-gray-600 ">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {data?.map((post) => (
-            <div 
-            key={post.slug} className="p-4 md:w-1/3">
+          {data?.map((post, idx) => (
+            <div key={idx} className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <Link href={`/blog/${post.slug}`}>
                   <Image
