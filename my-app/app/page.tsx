@@ -31,7 +31,7 @@ const Home = async () => {
       >
         <MotionDiv className=" lg:flex-grow md:w-1/2 py-12  md:pr-16 flex flex-col md:items-start  mb-16 md:mb-0  ">
           <h1 className="text-2xl sm:text-4xl  leading-relaxed  mb-4 font-medium text-gray-900 dark:text-white ">
-            Frontend Developer Crafting <br /> Tomorrow's Digital Experience
+            Frontend Developer Crafting <br /> Tomorrow Digital Experience
           </h1>
           <p className="mb-8 leading-relaxed dark:text-white ">
             Hey there! Im Imran Khan, a frontend developer specializing in
