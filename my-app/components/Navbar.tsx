@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="flex justify-between py-10 items-center ">
       <Link href={"/"}>
         <h1 className="text-2xl font-bold">
-          IMRAN<span className="text-primary">FOLIO</span>
+          IMRAN<span className="text-primary">KHANI</span>
         </h1>{" "}
       </Link>
       <ul className="flex gap-5 font-bold text-lg ">

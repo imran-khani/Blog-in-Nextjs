@@ -2,7 +2,7 @@ import Image from "next/image";
 import { client, urlFor } from "./(sanity)/sanity";
 import { HeroImage } from "./(sanity)/interface";
 import { Button } from "@/components/ui/button";
-import {motion} from "framer-motion"
+import MotionDiv from "@/components/MotionDiv";
 
 const getData = async () => {
   const query = `
@@ -16,16 +16,12 @@ const Home = async () => {
   const data: HeroImage = await getData();
   return (
     <section className="text-gray-600 body-font">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}    
-      className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
-        <div className=" lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-white">
-            Frontend Developer Crafting Tomorrow's Digital Experience
-          </h1>
-          <p className="mb-8 leading-relaxed dark:text-white">
+      <MotionDiv  className="mx-auto flex  py-5 md:flex-row flex-col items-center">
+        <div className=" lg:flex-grow md:w-1/2 py-12  md:pr-16 flex flex-col md:items-start  mb-16 md:mb-0  ">
+          <h1 className="text-2xl sm:text-4xl  leading-relaxed  mb-4 font-medium text-gray-900 dark:text-white ">
+            Frontend Developer Crafting <br /> Tomorrow's Digital Experience
+          </h1> 
+          <p className="mb-8 leading-relaxed dark:text-white ">
             Hey there! I'm Imran Khan, a frontend developer specializing in
             React and Next.js. For two years, I've been weaving creativity into
             code to build captivating digital experiences. Join me on this
@@ -42,14 +38,14 @@ const Home = async () => {
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
           <Image
-            className="object-cover object-center rounded h-auto relative md:left-20 lg:bottom-10"
+            className="object-cover object-center rounded h-auto relative md:left-28 lg:bottom-10"
             alt="hero"
             src={urlFor(data.heroImage).url()}
-            width={400}
-            height={400}
+            width={420}
+            height={420}
           />
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };

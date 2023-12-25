@@ -23,7 +23,7 @@ const ArticlePage = async ({ params }: { params: { slug: string } }) => {
     <section className="text-gray-600 ">
       <div className="h-full py-10  rounded-lg overflow-hidden dark:text-white \">
         <Image
-          className="md:h-[55%] w-full  object-center rounde-lg "
+          className="md:h-[50%] w-full  object-center rounde-lg "
           src={urlFor(data.titleImage).url()}
           alt="blog"
           width={700}

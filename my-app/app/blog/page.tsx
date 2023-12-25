@@ -2,6 +2,7 @@ import Image from "next/image";
 import { client, urlFor } from "../(sanity)/sanity";
 import { Props } from "../(sanity)/interface";
 import Link from "next/link";
+import MotionDiv from "@/components/MotionDiv";
 
 const getData = async () => {
   const query = `*[_type=='blog'] | order(_createdAt desc){
