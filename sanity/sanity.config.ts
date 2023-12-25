@@ -1,14 +1,14 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
-
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemas'
+import { conf } from '../conf/conf'
 export default defineConfig({
   name: 'default',
   title: 'Sanity Blog',
 
-  projectId: '2zssf60r',
-  dataset: 'production',
+  projectId: conf.sanityProjectId,
+  dataset: conf.sanityDataset,
 
   plugins: [deskTool(), visionTool()],
 
