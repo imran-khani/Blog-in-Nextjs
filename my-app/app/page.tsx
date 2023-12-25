@@ -1,98 +1,51 @@
 import Image from "next/image";
 import { client, urlFor } from "./(sanity)/sanity";
-import { Props } from "./(sanity)/interface";
-import Link from "next/link";
+import { HeroImage } from "./(sanity)/interface";
+import { Button } from "@/components/ui/button";
 
 const getData = async () => {
-  const query = `*[_type=='blog'] | order(_createdAt desc){
-        title,
-         titleImage,
-          "slug":slug.current,
-           smallDescription,
-          content
-     }`;
+  const query = `
+    *[_type=='heroImage']{
+        heroImage,
+      }[0]`;
   const data = await client.fetch(query);
   return data;
 };
-
 const Home = async () => {
-  const data: Props[] = await getData();
+  const data: HeroImage = await getData();
+  console.log(data);
   return (
-    <section className="text-gray-600 ">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap -m-4">
-          {data?.map((post) => (
-            <div className="p-4 md:w-1/3">
-              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                <Link href={`/blog/${post.slug}`}>
-                  <Image
-                    className="lg:h-48 md:h-36 w-full object-cover object-center"
-                    src={urlFor(post.titleImage).url()}
-                    alt="blog"
-                    width={200}
-                    height={200}
-                  />
-                </Link>
-                <div className="p-6">
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    {post.title}
-                  </h1>
-                  <p className="leading-relaxed mb-3 line-clamp-3">
-                    {post.smallDescription}
-                  </p>
-                  <div className="flex items-center flex-wrap ">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                    >
-                      Read More
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </Link>
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                      </svg>
-                      1.2K
-                    </span>
-                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                      6
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+    <section className="text-gray-600 body-font">
+      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div className=" lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-white">
+            Before they sold out
+            <br className="hidden lg:inline-block" />
+            readymade gluten
+          </h1>
+          <p className="mb-8 leading-relaxed dark:text-white">
+            Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
+            plant cold-pressed tacos poke beard tote bag. Heirloom echo park
+            mlkshk tote bag selvage hot chicken authentic tumeric truffaut
+            hexagon try-hard chambray.
+          </p>
+          <div className="flex justify-center">
+            <Button className="inline-flex text-white bg-primary  border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+              Read Blog
+            </Button>
+            <Button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+              Download CV
+            </Button>
+          </div>
+        </div>
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
+          <Image
+            className="object-cover object-center rounded h-auto relative md:left-20 lg:bottom-10"
+            alt="hero"
+            src={urlFor(data.heroImage).url()}
+            width={400}
+            height={400}
+          />
         </div>
       </div>
     </section>

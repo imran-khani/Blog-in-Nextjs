@@ -5,3 +5,7 @@ export  interface Props{
     content:string,
     slug:string,
 }
+
+export interface HeroImage{
+    heroImage:any;
+}
