@@ -23,24 +23,7 @@ const Home = async () => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {data?.map((post) => (
-            <MotionDiv
-              key={post.slug}
-              animation={{
-                initial: { opacity: 0, scale: 0.1, x: 0 },
-                animate: {
-                  skewX: 0,
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  rotate: 0,
-                  transition: {
-                    duration: 0.5,
-                    ease: "easeInOut",
-                  },
-                },
-              }}
-              className="p-4 md:w-1/3"
-            >
+            <div key={post.slug} className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <Link href={`/blog/${post.slug}`}>
                   <Image
@@ -109,7 +92,7 @@ const Home = async () => {
                   </div>
                 </div>
               </div>
-            </MotionDiv>
+            </div>
           ))}
         </div>
       </div>
