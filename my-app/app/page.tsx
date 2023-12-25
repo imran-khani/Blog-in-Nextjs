@@ -2,6 +2,7 @@ import Image from "next/image";
 import { client, urlFor } from "./(sanity)/sanity";
 import { HeroImage } from "./(sanity)/interface";
 import { Button } from "@/components/ui/button";
+import {motion} from "framer-motion"
 
 const getData = async () => {
   const query = `
@@ -13,24 +14,25 @@ const getData = async () => {
 };
 const Home = async () => {
   const data: HeroImage = await getData();
-  console.log(data);
   return (
     <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}    
+      className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
         <div className=" lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-white">
-            Before they sold out
-            <br className="hidden lg:inline-block" />
-            readymade gluten
+            Frontend Developer Crafting Tomorrow's Digital Experience
           </h1>
           <p className="mb-8 leading-relaxed dark:text-white">
-            Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-            plant cold-pressed tacos poke beard tote bag. Heirloom echo park
-            mlkshk tote bag selvage hot chicken authentic tumeric truffaut
-            hexagon try-hard chambray.
+            Hey there! I'm Imran Khan, a frontend developer specializing in
+            React and Next.js. For two years, I've been weaving creativity into
+            code to build captivating digital experiences. Join me on this
+            journey as we shape the future of the web, pixel by pixel.
           </p>
           <div className="flex justify-center">
-            <Button className="inline-flex text-white bg-primary  border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <Button className="inline-flex text-white bg-primary/90  border-0 py-2 px-6 focus:outline-none hover:bg-primary  rounded text-lg">
               Read Blog
             </Button>
             <Button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
@@ -47,7 +49,7 @@ const Home = async () => {
             height={400}
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
