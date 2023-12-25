@@ -34,8 +34,8 @@ const Home = async () => {
             Frontend Developer Crafting <br /> Tomorrow's Digital Experience
           </h1>
           <p className="mb-8 leading-relaxed dark:text-white ">
-            Hey there! I'm Imran Khan, a frontend developer specializing in
-            React and Next.js. For two years, I've been weaving creativity into
+            Hey there! Im Imran Khan, a frontend developer specializing in
+            React and Next.js. For two years, Ive been weaving creativity into
             code to build captivating digital experiences. Join me on this
             journey as we shape the future of the web, pixel by pixel.
           </p>
