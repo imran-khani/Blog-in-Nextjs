@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { client } from "./(sanity)/sanity";
+import { Props } from "./(sanity)/interface";
 
 const getData = async () => {
   const query = `*[_type=='blog'] | order(_createdAt desc){
@@ -13,8 +14,13 @@ const getData = async () => {
   return data;
 };
 
-const Home = () => {
-  return <div>Home</div>;
+const Home = async () => {
+  const data: Props[] = await getData();
+  return (
+    <section className="text-gray-600 ">
+      <div className="container mx-auto py-24 px-4">q</div>
+    </section>
+  );
 };
 
 export default Home;
