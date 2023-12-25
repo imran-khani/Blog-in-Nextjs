@@ -18,6 +18,7 @@ const Home = async () => {
   return (
     <section className="text-gray-600 body-font">
       <MotionDiv
+      key={data.heroImage}
         animation={{
           initial: { opacity: 0 },
           animate: { opacity: 1, scale: 1.0, z: 0 },
