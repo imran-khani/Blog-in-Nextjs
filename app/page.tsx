@@ -2,20 +2,19 @@
 import Image from "next/image";
 import { client, urlFor } from "./(sanity)/sanity";
 import { HeroImage } from "./(sanity)/interface";
-import { Button } from "@/components/ui/button";
-import MotionDiv from "@/components/MotionDiv";
+import { Button } from "../components/ui/button";
+import MotionDiv from "../components/MotionDiv";
 import Link from "next/link";
 
 const getData = async () => {
   const query = `
     *[_type=="heroImage"]{
         heroImage,
-      }[0]`
+      }[0]`;
   const data = await client.fetch(query);
   return data;
 };
 const Home = async () => {
-  
   const data: HeroImage = await getData();
   return (
     <section className="text-gray-600 body-font">
