@@ -11,6 +11,9 @@ dependencies:
   '@radix-ui/react-slot':
     specifier: ^1.0.2
     version: 1.0.2(@types/react@18.2.45)(react@18.2.0)
+  '@sanity/client':
+    specifier: ^6.10.0
+    version: 6.10.0
   '@sanity/image-url':
     specifier: ^1.0.2
     version: 1.0.2
