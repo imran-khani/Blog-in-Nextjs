@@ -15,6 +15,7 @@ const getData = async () => {
   return data;
 };
 const Home = async () => {
+  
   const data: HeroImage = await getData();
   return (
     <section className="text-gray-600 body-font">
